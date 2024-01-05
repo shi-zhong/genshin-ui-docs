@@ -1,0 +1,55 @@
+Arguments: 
+  /home/liuan/Applications/Command/.nvm/versions/node/v16.20.1/bin/node /home/liuan/Applications/Command/node-v18.17.0/bin/yarn add vuepress-plugin-demoblock-plus -D
+
+PATH: 
+  /home/liuan/.local/share/pnpm:/home/liuan/Applications/Command/.nvm/versions/node/v16.20.1/bin:/home/liuan/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/liuan/Applications/Command/golang/go/bin:/home/liuan/Applications/Command/golang/goPath/bin:/home/liuan/Applications/Command/node-v18.17.0/bin:/home/liuan/Applications/Command/Java/jdk1.8.0_251/bin:/home/liuan/Applications/Command/mongodb/bin:/home/liuan/Applications/Command/apache-maven-3.8.1/bin:/home/liuan/Applications/Command/flutter_2.2.3/bin:/home/liuan/.local/share/JetBrains/Toolbox/scripts
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  16.20.1
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/genshin-ui: Not found
+      at Request.params.callback [as _callback] (/home/liuan/Applications/Command/node-v18.17.0/lib/node_modules/yarn/lib/cli.js:66145:18)
+      at Request.self.callback (/home/liuan/Applications/Command/node-v18.17.0/lib/node_modules/yarn/lib/cli.js:140890:22)
+      at Request.emit (node:events:513:28)
+      at Request.<anonymous> (/home/liuan/Applications/Command/node-v18.17.0/lib/node_modules/yarn/lib/cli.js:141862:10)
+      at Request.emit (node:events:513:28)
+      at IncomingMessage.<anonymous> (/home/liuan/Applications/Command/node-v18.17.0/lib/node_modules/yarn/lib/cli.js:141784:12)
+      at Object.onceWrapper (node:events:627:28)
+      at IncomingMessage.emit (node:events:525:35)
+      at endReadableNT (node:internal/streams/readable:1358:12)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+npm manifest: 
+  {
+    "name": "genshin-ui-docx",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "docs:dev": "vuepress dev docs",
+      "docs:build": "vuepress build docs"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+      "@vuepress/client": "2.0.0-rc.0",
+      "vue": "^3.3.12",
+      "vuepress": "2.0.0-rc.0",
+      "genshin-ui": "^0.2.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

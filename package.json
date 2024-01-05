@@ -1,0 +1,23 @@
+{
+  "name": "genshin-ui-docs",
+  "version": "1.0.0",
+  "description": "还原原神UI组件库文档",
+  "main": "index.js",
+  "type": "module",
+  "module": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@shi-zhong/genshin-ui": "^1.0.0",
+    "@vuepress/client": "2.0.0-beta.51",
+    "vue": "^3.3.10",
+    "vuepress": "2.0.0-beta.51",
+    "vuepress-plugin-demoblock-plus": "^2.0.4"
+  }
+}
