@@ -1,17 +1,30 @@
 ### 圣遗物部位图
 
-
-<div style="background: var(--font-light-gray)">
-  <GIcon type="projection"  :src="artifact.ArtifactPicture.FlowerOfLife" :size="60" />
-  <GIcon type="projection"  :src="artifact.ArtifactPicture.PlumnOfDeath" :size="60" />
-  <GIcon type="projection"  :src="artifact.ArtifactPicture.SandsOfEon" :size="60" />
-  <GIcon type="projection"  :src="artifact.ArtifactPicture.GobletOfEonothem" :size="60" />
-  <GIcon type="projection"  :src="artifact.ArtifactPicture.CircletOfLogos" :size="60" />
-</div>
-
 ``` ts
 import { Artifact } from '@shi-zhong/genshin-ui'
 ```
+
+:::demo
+
+```vue
+<template>
+  <div style="background: var(--font-light-gray)">
+    <GIcon type="projection" :src="FlowerOfLife" :size="60" />
+    <GIcon type="projection" :src="PlumnOfDeath" :size="60" />
+    <GIcon type="projection" :src="SandsOfEon" :size="60" />
+    <GIcon type="projection" :src="GobletOfEonothem" :size="60" />
+    <GIcon type="projection" :src="CircletOfLogos" :size="60" />
+  </div>
+</template>
+<script setup>
+  import { Artifact } from '@shi-zhong/genshin-ui'
+  
+  const { ArtifactPicture } = Artifact;
+  const { FlowerOfLife, PlumnOfDeath, SandsOfEon, GobletOfEonothem, CircletOfLogos } = ArtifactPicture;
+</script>
+```
+:::
+
 
 ### 源文件导出
 

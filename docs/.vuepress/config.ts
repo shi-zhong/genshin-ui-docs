@@ -1,5 +1,5 @@
 /** @format */
-import { defaultTheme, defineUserConfig } from 'vuepress';
+import { defaultTheme, defineUserConfig, viteBundler } from 'vuepress';
 import vuePluginDemoPlus from 'vuepress-plugin-demoblock-plus';
 import sidebar from './sidebar';
 
@@ -12,7 +12,6 @@ export default defineUserConfig({
     vuePluginDemoPlus({
       scriptImports: [
         "import * as GenshinUI from '@shi-zhong/genshin-ui'",
-        "import * as GenshinUIUtils from '@shi-zhong/genshin-ui/utils'",
       ],
       scriptReplaces: [
         {
@@ -24,10 +23,6 @@ export default defineUserConfig({
         {
           searchValue: /import ({.*}) from '@shi-zhong\/genshin-ui'/g,
           replaceValue: ((s, s1) => `const ${s1} = GenshinUI`) as any,
-        },
-        {
-          searchValue: /import ({.*}) from '@shi-zhong\/genshin-ui\/utils'/g,
-          replaceValue: ((s, s1) => `const ${s1} = GenshinUIUtils`) as any,
         },
       ],
     }),
@@ -41,7 +36,9 @@ export default defineUserConfig({
   ],
   open: false,
   theme: defaultTheme({
-    navbar: [{ text: 'github', link: 'https://github.com/shi-zhong/genshin-ui' }],
+    navbar: [
+      { text: 'github', link: 'https://github.com/shi-zhong/genshin-ui' },
+    ],
     sidebar: sidebar([
       '/install',
       {
@@ -84,4 +81,11 @@ export default defineUserConfig({
       lineNumbers: false,
     },
   },
+  bundler: viteBundler({
+    viteOptions: {
+      build: {
+        chunkSizeWarningLimit: 1000,
+      },
+    },
+  }),
 });

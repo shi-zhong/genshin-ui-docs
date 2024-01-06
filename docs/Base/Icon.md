@@ -4,17 +4,22 @@
 
 :::demo 使用drop-shadow 来改变icon的颜色表现
 
-```vue 
+```vue
 <template>
-  <GIcon type='origin' :src="elements.ElementWebp.Geo" />
-  <GIcon type='origin' :src="elements.ElementWebp.Geo" size="50" />
-  <GIcon type='origin' :src="elements.ElementWebp.Geo" size="80" alt="geo"/>
-  <GIcon type='projection' :src="elements.ElementWebp.Geo" color="red" />
-  <GIcon type='projection' :src="elements.ElementWebp.Geo" color="blue" size="50" />
-  <GIcon type='projection' :src="elements.ElementWebp.Geo" color="green" size="80"/>
-</template>
-``` 
+  <GIcon :src="ElementWebp.Geo" />
+  <GIcon type="origin" :src="ElementWebp.Geo" :size="50" />
+  <GIcon type="origin" :src="ElementWebp.Geo" :size="80" alt="geo" />
 
+  <GIcon type="projection" color="red" :src="ElementPng.Geo" />
+  <GIcon type="projection" color="blue" :src="ElementPng.Geo" :size="50" />
+  <GIcon type="projection" color="green" :src="ElementPng.Geo" :size="80" />
+</template>
+<script setup>
+  import { Element } from '@shi-zhong/genshin-ui'
+  
+  const { ElementWebp, ElementPng } = Element;
+</script>
+```
 :::
 
 

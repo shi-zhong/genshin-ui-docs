@@ -1,16 +1,29 @@
 ### 武器图片
 
-<div style="background: var(--font-light-gray)">
-  <GIcon :size="120" :src="weapons.WeaponPicture.Bow" />
-  <GIcon :size="120" :src="weapons.WeaponPicture.Claymore" />
-  <GIcon :size="120" :src="weapons.WeaponPicture.Catalyst" />
-  <GIcon :size="120" :src="weapons.WeaponPicture.Polearm" />
-  <GIcon :size="120" :src="weapons.WeaponPicture.Sword" />
-</div>
-
 ``` ts
 import { Weapon } from '@shi-zhong/genshin-ui'
 ```
+
+:::demo
+
+```vue
+<template>
+  <div style="background: var(--font-light-gray)">
+    <GIcon :size="120" :src="Bow" />
+    <GIcon :size="120" :src="Claymore" />
+    <GIcon :size="120" :src="Catalyst" />
+    <GIcon :size="120" :src="Polearm" />
+    <GIcon :size="120" :src="Sword" />
+  </div>
+</template>
+<script setup>
+  import { Weapon } from '@shi-zhong/genshin-ui'
+  
+  const { WeaponPicture } = Weapon;
+  const { Bow, Claymore, Catalyst, Polearm, Sword } = WeaponPicture;
+</script>
+```
+:::
 
 ### 源文件导出
 

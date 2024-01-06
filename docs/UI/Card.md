@@ -31,10 +31,15 @@
       desc="神里绫华"
       foucsing
     > 
-      <GIcon class="card-element" :src="elements.ElementWebp.Cryo" />
+      <GIcon class="card-element" :src="ElementWebp.Cryo" />
     </GCard>
   </div>
 </template>
+<script setup>
+  import { Element } from '@shi-zhong/genshin-ui'
+  
+  const { ElementWebp } = Element;
+</script>
 ```
 :::
 

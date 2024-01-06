@@ -13,6 +13,9 @@ import { Message } from 'genshin-ui';
   <GButton class="w-150 mg-10" type="shrink" icon="round" balance @click="() => Message.error('Error')">Error</GButton>
   <GButton class="w-150 mg-10" type="shrink" icon="round" balance @click="() => Message.clear()">清除</GButton>
 </template>
+<script setup>
+  import { Message } from '@shi-zhong/genshin-ui'
+</script>
 ``` 
 
 :::

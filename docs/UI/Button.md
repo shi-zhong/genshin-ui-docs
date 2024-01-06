@@ -39,7 +39,7 @@
     </div>
     <div style="padding-left: 10px;font-size: 20px;">图片形式传入icon</div>
     <div>
-      <GButton class="w-150 mg-10" type="shrink" :icon="elements.ElementWebp.Pyro" balance>图片icon</GButton>
+      <GButton class="w-150 mg-10" type="shrink" :icon="$withBase('/flower.webp')" balance>图片icon</GButton>
     </div>
     <div style="padding-left: 10px;font-size: 20px;">自定义icon</div>
     <div>
