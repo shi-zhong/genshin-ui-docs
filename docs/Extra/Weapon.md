@@ -1,9 +1,5 @@
 ### 武器图片
 
-``` ts
-import { Weapon } from '@shi-zhong/genshin-ui'
-```
-
 :::demo
 
 ```vue
@@ -17,9 +13,8 @@ import { Weapon } from '@shi-zhong/genshin-ui'
   </div>
 </template>
 <script setup>
-  import { Weapon } from '@shi-zhong/genshin-ui'
+  import { WeaponPicture } from '@shi-zhong/genshin-ui'
   
-  const { WeaponPicture } = Weapon;
   const { Bow, Claymore, Catalyst, Polearm, Sword } = WeaponPicture;
 </script>
 ```
@@ -37,14 +32,17 @@ export enum Weapons {
   Sword = '单手剑'
 }
 
+export enum WeaponsCTE {
+  '弓' = 'Bow',
+  '双手剑' = 'Claymore',
+  '法器' = 'Catalyst',
+  '长柄武器' = 'Polearm',
+  '单手剑' = 'Sword'
+}
+
 export type WeaponsCode = keyof typeof Weapons
 export type WeaponsChinese = `${Weapons}`
 
 export const WeaponPicture: { [key in WeaponCode ]: string } = { /* ** */ } as const
-
-// index.ts
-import * as Weapon from 'weapon'
-
-export { Weapon }
 
 ```

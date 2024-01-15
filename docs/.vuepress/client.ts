@@ -1,5 +1,4 @@
 /** @format */
-
 import { defineClientConfig } from '@vuepress/client';
 
 import CssVariables from './components/StyleViewer.vue';

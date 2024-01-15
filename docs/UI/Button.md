@@ -20,8 +20,7 @@
 
 #### 使用 Icon 来定义按钮图标
 
-::: demo `icon`会置于左侧位置，且当按钮为圆形时展示在按钮中央。可以传入预设值或图片。带有`/`,`.`的文本被视为图片路径，否则视为以`decoration-${icon}`的方式传入`class`中。可以尝试通过`:deep`伪类创建自定义css图标。
-
+::: demo `icon`会置于左侧位置，且当按钮为圆形时展示在按钮中央。传入值种类如下： 1. 图片路径: 包含`/`,`.`，视作图片路径或`base64`。2. 可变色图标： 以`$`开头，激活时提高颜色亮度。 3. 黑色背景图标：自带黑色圆形背景。 2，3类图标会在移除`$`字首后，以`decoration-${icon}`的方式传入`class`中。通过`:deep`伪类和后代选择器创建自定义css图标，选择器见代码css部分。
 ```vue
 <template>
   <div style="background: var(--font-dark-gray); color: var(--blank-white);">
@@ -30,16 +29,15 @@
       <GButton class="w-150 mg-10" type="shrink" balance icon="fork">fork</GButton>
       <GButton class="w-150 mg-10" type="shrink" balance icon="del">del</GButton>
       <GButton class="w-150 mg-10" type="shrink" balance icon="loading">loading</GButton>
-      <GButton class="w-50 mg-10" type="shrink" balance shape="round" icon="menu"></GButton>
-      <GButton class="w-50 mg-10" type="shrink" balance shape="round" icon="sort"></GButton>
-      <GButton class="w-50 mg-10" type="shrink" balance shape="round" icon="filter"></GButton>
-      <GButton class="w-50 mg-10" type="shrink" balance shape="round" icon="back"></GButton>
-      <GButton class="w-50 mg-10" type="shrink" balance shape="round" icon="close"></GButton>
-
+      <GButton class="w-50 mg-10" type="shrink" balance shape="round" icon="$menu"></GButton>
+      <GButton class="w-50 mg-10" type="shrink" balance shape="round" icon="$sort"></GButton>
+      <GButton class="w-50 mg-10" type="shrink" balance shape="round" icon="$filter"></GButton>
+      <GButton class="w-50 mg-10" type="shrink" balance shape="round" icon="$back"></GButton>
+      <GButton class="w-50 mg-10" type="shrink" balance shape="round" icon="$close"></GButton>
     </div>
-    <div style="padding-left: 10px;font-size: 20px;">图片形式传入icon</div>
+    <div style="padding-left: 10px;font-size: 20px;">图片形式传入icon, 如果想要定义样式，使用后代选择器</div>
     <div>
-      <GButton class="w-150 mg-10" type="shrink" :icon="$withBase('/flower.webp')" balance>图片icon</GButton>
+      <GButton class="w-150 mg-10 customed-image" type="shrink" :icon="$withBase('/flower.webp')" balance>图片icon</GButton>
     </div>
     <div style="padding-left: 10px;font-size: 20px;">自定义icon</div>
     <div>
@@ -48,31 +46,34 @@
   </div>
 </template>
 <style>
-/* scope 中请使用:deep选择器 */
-  .decoration-custom {
-    position: relative;
-    aspect-ratio: 1;
-    height: 100%;
-    border-radius: 50%;
-    background-color: rgb(49, 49, 49);
-  }
+/** 非所有例子都有对应实例按钮 */
+/** 举例一: 给按钮传入类名，通过后代选择器选中1类型的图片，类 */
+.customed-image.button-wrap-button .button-wrap-special {
+  transform: rotate(180deg);
+}
+/** 举例二: 使用可变色图标, $custom, 关键路径为.decoration-custom::before, 双类名提供优先级支持 */
+.decoration-colord-image.decoration-custom::before {
+  background-image: url(./assets/custom.png);
+  background-size: 80%;
+}
 
-  .decoration-custom::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: block;
-    width: 0;
-    height: 0;
+/** 举例三: 使用黑背图标, custom, 关键路径为.decoration-custom::before, 双类名提供优先级支持，通常操作伪元素来表现样式，可使用背景图替代 */
+.decoration-black-bgi.decoration-custom::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  width: 0;
+  height: 0;
 
-    --b-width: 9px;
-    border: calc(var(--b-width) * 2) solid rgb(251, 204, 62);
-    border-top: none;
-    border-left: var(--b-width) solid transparent;
-    border-right: var(--b-width) solid transparent;
-  }
+  --b-width: 9px;
+  border: calc(var(--b-width) * 2) solid rgb(251, 204, 62);
+  border-top: none;
+  border-left: var(--b-width) solid transparent;
+  border-right: var(--b-width) solid transparent;
+}
 </style>
 ``` 
 :::
@@ -149,17 +150,17 @@ defineProps<{
 
 ### 类型说明
 
-| 参数      | 说明                               | 类型      | 可选值                              | 默认值   |
-| --------- | ---------------------------------- | --------- | ----------------------------------- | -------- |
-| type      | 按钮类型                           | `string`  | `shrink` `spread`                   | `shrink` |
-| shape     | 按钮形状                           | `string`  | `round`                             |  |
-| balance   | 当按钮长度过小时，用于平衡视觉效果 | `boolean` |                                     | `false`  |
-| icon      | 按钮按钮图标                       | `string`  | `round` `fork` `以上文小节内容为准` |   |
-| disable   | 按钮是否禁用                       | `boolean` |                                     | `false`  |
-| attention | 红色感叹号                         | `boolean` |                                     | `false`  |
-| theme     | 按钮主题                           | `string`  | `dark` `light`                      | `light`  |
-| sound     | 按钮声音                           | `object`  |                                     |          |
-| sleep     | 点击后禁用时间                     | `number`  |                                     |          |
+| 参数      | 说明                               | 类型      | 可选值                   | 默认值   |
+| --------- | ---------------------------------- | --------- | ------------------------ | -------- |
+| type      | 按钮类型                           | `string`  | `shrink` `spread`        | `shrink` |
+| shape     | 按钮形状                           | `string`  | `round`                  |          |
+| balance   | 当按钮长度过小时，用于平衡视觉效果 | `boolean` |                          | `false`  |
+| icon      | 按钮按钮图标                       | `string`  | `以上文小节列出内容为准` |          |
+| disable   | 按钮是否禁用                       | `boolean` |                          | `false`  |
+| attention | 红色感叹号                         | `boolean` |                          | `false`  |
+| theme     | 按钮主题                           | `string`  | `dark` `light`           | `light`  |
+| sound     | 按钮声音                           | `object`  |                          |          |
+| sleep     | 点击后禁用时间                     | `number`  |                          |          |
 
 <style>
   .w-50 {

@@ -1,7 +1,10 @@
 /** @format */
 import { defaultTheme, defineUserConfig, viteBundler } from 'vuepress';
 import vuePluginDemoPlus from 'vuepress-plugin-demoblock-plus';
-import sidebar from './sidebar';
+import sidebar, { ReadNextDirs } from './sidebar';
+import { Version } from '@shi-zhong/genshin-ui';
+
+// read version
 
 export default defineUserConfig({
   lang: 'zh-CN',
@@ -10,9 +13,7 @@ export default defineUserConfig({
   description: '尝试还原原神中的一些UI(Web.Vue)',
   plugins: [
     vuePluginDemoPlus({
-      scriptImports: [
-        "import * as GenshinUI from '@shi-zhong/genshin-ui'",
-      ],
+      scriptImports: ["import * as GenshinUI from '@shi-zhong/genshin-ui'"],
       scriptReplaces: [
         {
           searchValue:
@@ -38,42 +39,11 @@ export default defineUserConfig({
   theme: defaultTheme({
     navbar: [
       { text: 'github', link: 'https://github.com/shi-zhong/genshin-ui' },
+      { text: Version, link: '' }, // 同步版本
     ],
     sidebar: sidebar([
       '/install',
-      {
-        text: 'UI',
-        prefix: '/UI/',
-        link: 'index.md',
-        children: [
-          'Button',
-          'Card',
-          'Highlight',
-          'Loading',
-          'Menu',
-          'Message',
-          'Modal',
-          'Select',
-          'Tabs',
-          'Tags',
-        ],
-      },
-      {
-        text: '基础组件',
-        prefix: '/Base/',
-        link: 'index.md',
-        children: ['Icon', 'ScrollView', 'Popover'],
-      },
-      {
-        text: '工具函数',
-        prefix: '/Utils/',
-        children: ['MockDrag'],
-      },
-      {
-        text: '额外资源',
-        prefix: '/Extra/',
-        children: ['Artifact', 'Element', 'Weapon', 'CSSVariables'],
-      },
+      ...ReadNextDirs(['UI', 'Base', 'Utils', 'Extra']),
     ]),
   }),
   markdown: {

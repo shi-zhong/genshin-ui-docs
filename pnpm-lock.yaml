@@ -6,8 +6,8 @@ settings:
 
 devDependencies:
   '@shi-zhong/genshin-ui':
-    specifier: ^1.0.0
-    version: 1.0.0
+    specifier: ^1.0.2
+    version: 1.0.2
   '@vuepress/client':
     specifier: 2.0.0-beta.51
     version: 2.0.0-beta.51
@@ -177,12 +177,8 @@ packages:
       fastq: 1.15.0
     dev: true
 
-  /@shi-zhong/genshin-ui@1.0.0:
-    resolution: {integrity: sha512-YdRac+3jpqaueK7vfQSo7fCH/q4fftRPvBTe+wyQ+tLrMHa3I8OvWWBH0luWy39BQ/YBUF4SmgO13vfAOmFTMw==}
-    dependencies:
-      vue: 3.3.10
-    transitivePeerDependencies:
-      - typescript
+  /@shi-zhong/genshin-ui@1.0.2:
+    resolution: {integrity: sha512-uci8Rwyfff6iG+NugyS6ZibffJh+yUdSZ4a4Z1vBm5ChP4THvCeahUBIvnDvFCLVb6gNgOn3refRdYYhf4/bAQ==}
     dev: true
 
   /@types/debug@4.1.12:

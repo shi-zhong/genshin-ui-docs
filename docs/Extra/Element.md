@@ -1,10 +1,4 @@
 ### 元素图片
-
-
-``` ts
-import { Element } from '@shi-zhong/genshin-ui'
-```
-
 :::demo
 
 ```vue
@@ -30,9 +24,7 @@ import { Element } from '@shi-zhong/genshin-ui'
   </div>
 </template>
 <script setup>
-  import { Element } from '@shi-zhong/genshin-ui'
-  
-  const { ElementWebp, ElementPng } = Element;
+  import { ElementWebp, ElementPng} from '@shi-zhong/genshin-ui'
 </script>
 ```
 :::
@@ -51,6 +43,16 @@ export enum Elements {
   Geo = '岩'
 }
 
+export enum ElementsCTE {
+  火 = 'Pyro',
+  水 = 'Hydro',
+  风 = 'Anemo',
+  雷 = 'Electro',
+  草 = 'Dendro',
+  冰 = 'Cryo',
+  岩 = 'Geo'
+}
+
 export type ElementsCode = keyof typeof Elements
 export type ElementsChinese = `${Elements}`
 
@@ -58,9 +60,4 @@ export type ElementsChinese = `${Elements}`
 export const ElementPng: { [key in ElementsCode ]: string } = { /* ... */}
 // 彩色图标
 export const ElementWebp : { [key in ElementsCode ]: string } = {/* ... */}
-
-// index.ts
-import * as Element from 'element'
-
-export { Element }
 ```

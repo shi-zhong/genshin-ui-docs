@@ -92,7 +92,7 @@
 :::
 
 #### expose
-:::demo `placement = none`可以关闭内部的内置事件，使用`popoverVisible(bool)`来切换显示状态，`popover.visible()`来获取当前状态，由于展示时会获取一次鼠标位置，而这种触发方式无法获取，所以会展示在默认位置，可以设置`placement = 'B'`来获取居中效果
+:::demo `mode = none`可以关闭内部的内置事件，使用`popoverVisible(bool)`来切换显示状态，`popover.visible()`来获取当前状态，由于展示时会获取一次鼠标位置，而这种触发方式无法获取，所以会展示在默认位置，可以设置`placement = 'B'`等获取默认居中效果
 ```vue 
 <template>
   <GPopover ref="popover" mode="none">

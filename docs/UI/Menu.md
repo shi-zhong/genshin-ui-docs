@@ -6,6 +6,14 @@
 <template>
   <div style="background: #000">
     <span style="color: white; font-size: 30px">{{ chosen }}</span>
+    <GSelect v-model="chosen" :options="[
+      { text: '属性', value: 'attr' },
+      { text: '武器', value: 'weapon' },
+      { text: '圣遗物', value: 'artifact' },
+      { text: '命之座', value: 'life' },
+      { text: '天赋', value: 'talent' },
+      { text: '资料', value: 'data' },
+    ]" />
     <GMenu v-model="chosen" @change="handleUpdate" :options="[
       { txt: '属性', url: 'attr' },
       { txt: '武器', url: 'weapon' },

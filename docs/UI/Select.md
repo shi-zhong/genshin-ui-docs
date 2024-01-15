@@ -168,7 +168,7 @@ defineEmits<{
 | modelValue | 绑定值   | `string`              |                                     |        |
 | maxHeight  | 最大高度 | `number`              |                                     |        |
 | default    | 默认值   | `string`              |                                     |        |
-| placement  | 方向     | `acceptDirection`     | [见Popover](/Base/popover#类型定义) | `top`  |
+| placement  | 方向     | `acceptDirection`     | [见Popover](/genshin-ui-docs/Base/popover#类型定义) | `top`  |
 
 #### SelectOption
 | 参数  | 说明           | 类型   | 可选值 | 默认值 |
