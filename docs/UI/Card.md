@@ -36,9 +36,8 @@
   </div>
 </template>
 <script setup>
-  import { Element } from '@shi-zhong/genshin-ui'
+  import { ElementWebp } from '@shi-zhong/genshin-ui'
   
-  const { ElementWebp } = Element;
 </script>
 ```
 :::

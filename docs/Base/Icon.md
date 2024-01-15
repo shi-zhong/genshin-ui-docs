@@ -15,9 +15,7 @@
   <GIcon type="projection" color="green" :src="ElementPng.Geo" :size="80" />
 </template>
 <script setup>
-  import { Element } from '@shi-zhong/genshin-ui'
-  
-  const { ElementWebp, ElementPng } = Element;
+  import { ElementWebp, ElementPng } from '@shi-zhong/genshin-ui'
 </script>
 ```
 :::

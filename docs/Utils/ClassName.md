@@ -6,7 +6,7 @@
 ### 使用示例
 
 <script setup>
-  import { ref, watchEffect } from 'vue'
+  import { ref, watch } from 'vue'
   import { ClassNameFactor, Message } from '@shi-zhong/genshin-ui'
 
   const value = ref('')
@@ -23,8 +23,8 @@
     }
   }
 
-  watchEffect(() => {
-    const v = input.value.trim().replaceAll('\n', '')
+  const handleChange = (e) => {
+    const v = e.target.value.trim().replaceAll('\n', '')
     const is = /^\[.*\]$/.test(v) || /^\{.*\}$/.test(v)
     const willdo = `value.value = S(${is ? v : `"${v}"`})`
 
@@ -34,7 +34,7 @@
       console.log(willdo)
       Msg()
     }
-  })
+  }
 
   const placeholder = `必要时使用单引号标注字符串
 example: 
@@ -49,7 +49,7 @@ link,
 </script>
 
 <div style="display: flex;">
-  <textarea v-model="input" class="input" :placeholder="placeholder" />
+  <textarea v-model="input" class="input" :placeholder="placeholder" @input="handleChange" />
   <div class="input list">
     <div v-for="(l, i) in value.split(' ')" :key="l + i">{{ l }}</div>
   </div>
