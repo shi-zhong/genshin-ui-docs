@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="generator" content="VuePress 2.0.0-beta.51">
+    <style>
+      :root {
+        --c-bg: #fff;
+      }
+      html.dark {
+        --c-bg: #22272e;
+      }
+      html, body {
+        background-color: var(--c-bg);
+      }
+    </style>
+    <script>
+      const userMode = localStorage.getItem('vuepress-color-scheme');
+			const systemDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+			if (userMode === 'dark' || (userMode !== 'light' && systemDarkMode)) {
+				document.documentElement.classList.toggle('dark', true);
+			}
+    </script>
+    <title>GenshinUI</title><meta name="description" content="尝试还原原神中的一些UI(Web.Vue)">
+    <link rel="modulepreload" href="/genshin-ui-docs/assets/app.d699c88a.js"><link rel="modulepreload" href="/genshin-ui-docs/assets/404.html.31fab864.js"><link rel="modulepreload" href="/genshin-ui-docs/assets/404.html.c3e557d0.js"><link rel="prefetch" href="/genshin-ui-docs/assets/index.html.cd4b3c16.js"><link rel="prefetch" href="/genshin-ui-docs/assets/install.html.294494a0.js"><link rel="prefetch" href="/genshin-ui-docs/assets/Icon.html.3dc51966.js"><link rel="prefetch" href="/genshin-ui-docs/assets/Popover.html.aa7331d2.js"><link rel="prefetch" href="/genshin-ui-docs/assets/ScrollView.html.c13bee3c.js"><link rel="prefetch" href="/genshin-ui-docs/assets/index.html.2c2d6c4e.js"><link rel="prefetch" href="/genshin-ui-docs/assets/Artifact.html.60b81406.js"><link rel="prefetch" href="/genshin-ui-docs/assets/CssVariables.html.5ce29112.js"><link rel="prefetch" href="/genshin-ui-docs/assets/Element.html.9e368d19.js"><link rel="prefetch" href="/genshin-ui-docs/assets/Weapon.html.ba8dc400.js"><link rel="prefetch" href="/genshin-ui-docs/assets/Button.html.c81a4265.js"><link rel="prefetch" href="/genshin-ui-docs/assets/Card.html.16f17dd6.js"><link rel="prefetch" href="/genshin-ui-docs/assets/Highlight.html.d3674f5a.js"><link rel="prefetch" href="/genshin-ui-docs/assets/InputNumber.html.2665b119.js"><link rel="prefetch" href="/genshin-ui-docs/assets/Loading.html.d5f3e69f.js"><link rel="prefetch" href="/genshin-ui-docs/assets/Menu.html.2ebc7375.js"><link rel="prefetch" href="/genshin-ui-docs/assets/Message.html.91b47898.js"><link rel="prefetch" href="/genshin-ui-docs/assets/Modal.html.f26f25ce.js"><link rel="prefetch" href="/genshin-ui-docs/assets/Select.html.236c52f9.js"><link rel="prefetch" href="/genshin-ui-docs/assets/Switch.html.02c6115b.js"><link rel="prefetch" href="/genshin-ui-docs/assets/Tabs.html.0b3b351b.js"><link rel="prefetch" href="/genshin-ui-docs/assets/Tags.html.712886aa.js"><link rel="prefetch" href="/genshin-ui-docs/assets/ClassName.html.1267ea57.js"><link rel="prefetch" href="/genshin-ui-docs/assets/EventDispatch.html.9700ff1f.js"><link rel="prefetch" href="/genshin-ui-docs/assets/LongPress.html.97a3944b.js"><link rel="prefetch" href="/genshin-ui-docs/assets/MockDrag.html.a817bb6c.js"><link rel="prefetch" href="/genshin-ui-docs/assets/Types.html.82e307d5.js"><link rel="prefetch" href="/genshin-ui-docs/assets/index.html.253811c0.js"><link rel="prefetch" href="/genshin-ui-docs/assets/install.html.fa6176d1.js"><link rel="prefetch" href="/genshin-ui-docs/assets/Icon.html.35e701c2.js"><link rel="prefetch" href="/genshin-ui-docs/assets/Popover.html.b711279f.js"><link rel="prefetch" href="/genshin-ui-docs/assets/ScrollView.html.3d9928e1.js"><link rel="prefetch" href="/genshin-ui-docs/assets/index.html.ea2e2c6f.js"><link rel="prefetch" href="/genshin-ui-docs/assets/Artifact.html.b879e96b.js"><link rel="prefetch" href="/genshin-ui-docs/assets/CssVariables.html.efda316e.js"><link rel="prefetch" href="/genshin-ui-docs/assets/Element.html.74af86af.js"><link rel="prefetch" href="/genshin-ui-docs/assets/Weapon.html.f48b4b93.js"><link rel="prefetch" href="/genshin-ui-docs/assets/Button.html.e753bcaf.js"><link rel="prefetch" href="/genshin-ui-docs/assets/Card.html.9041e58e.js"><link rel="prefetch" href="/genshin-ui-docs/assets/Highlight.html.27797a59.js"><link rel="prefetch" href="/genshin-ui-docs/assets/InputNumber.html.af3affc4.js"><link rel="prefetch" href="/genshin-ui-docs/assets/Loading.html.eb844df9.js"><link rel="prefetch" href="/genshin-ui-docs/assets/Menu.html.6c61c1fc.js"><link rel="prefetch" href="/genshin-ui-docs/assets/Message.html.8b6ef504.js"><link rel="prefetch" href="/genshin-ui-docs/assets/Modal.html.8f8923b0.js"><link rel="prefetch" href="/genshin-ui-docs/assets/Select.html.d9a780d6.js"><link rel="prefetch" href="/genshin-ui-docs/assets/Switch.html.48820501.js"><link rel="prefetch" href="/genshin-ui-docs/assets/Tabs.html.76f94dc0.js"><link rel="prefetch" href="/genshin-ui-docs/assets/Tags.html.25f5dd16.js"><link rel="prefetch" href="/genshin-ui-docs/assets/ClassName.html.e0b908c2.js"><link rel="prefetch" href="/genshin-ui-docs/assets/EventDispatch.html.111c003f.js"><link rel="prefetch" href="/genshin-ui-docs/assets/LongPress.html.0f03e18c.js"><link rel="prefetch" href="/genshin-ui-docs/assets/MockDrag.html.5659e0c0.js"><link rel="prefetch" href="/genshin-ui-docs/assets/Types.html.cddd2c88.js">
+    <link rel="stylesheet" href="/genshin-ui-docs/assets/style.e12fcb19.css">
+  </head>
+  <body>
+    <div id="app"><!--[--><div class="theme-container"><main class="page"><div class="theme-default-content"><h1>404</h1><blockquote>There&#39;s nothing here.</blockquote><a href="/genshin-ui-docs/" class="">Take me home</a></div></main></div><!----><!--]--></div>
+    <script type="module" src="/genshin-ui-docs/assets/app.d699c88a.js" defer></script>
+  </body>
+</html>

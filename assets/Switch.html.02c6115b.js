@@ -1,0 +1,1 @@
+const t=JSON.parse('{"key":"v-f87cf37a","path":"/UI/Switch.html","title":"","lang":"zh-CN","frontmatter":{},"excerpt":"","headers":[{"level":3,"title":"\u4F7F\u7528\u7528\u4F8B","slug":"\u4F7F\u7528\u7528\u4F8B","link":"#\u4F7F\u7528\u7528\u4F8B","children":[]}],"git":{"updatedTime":null,"contributors":[]},"filePathRelative":"UI/Switch.md"}');export{t as data};
