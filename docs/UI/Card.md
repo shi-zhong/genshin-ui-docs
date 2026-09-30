@@ -125,15 +125,6 @@
 
 
 ``` ts
-
-interface CardProps {
-  showStars?: boolean
-  star: 1 | 2 | 3 | 4 | 5
-  imgUrl: string
-  desc?: string
-  foucsing?: boolean
-}
-
 interface DetailCardProps {
   size?: number;
   title?: string
@@ -153,28 +144,42 @@ interface DetailCardProps {
 }
 ```
 
-### 类型说明
 
-#### Card
-| 参数      | 说明                | 类型      | 可选值              | 默认值  |
-| --------- | ------------------- | --------- | ------------------- | ------- |
-| showStars | 展示星星            | `boolean` |                     | `false` |
-| star      | 星级                | `number`  | `1` `2` `3` `4` `5` | `1`     |
-| imgUrl    | 图片地址            | `string`  |                     |         |
-| desc      | 描述                | `string`  |                     |         |
-| foucsing  | 聚焦:表现为选中效果 | `boolean` |                     | `false` |
+<Props
+name="Card"
+:define="`
+  showStars?: boolean // 展示星星
+  star: 1 | 2 | 3 | 4 | 5 //星级
+  imgUrl: string // 图片地址
+  desc?: string // 描述
+  foucsing?: boolean // 聚焦:表现为选中效果
+`"
+:defaults="{
+  showStars: false,
+  star: 1,
+  foucsing: false
+}"
+/>
 
 
-#### DetailCard
-| 参数   | 说明     | 类型     | 可选值              | 默认值  |
-| ------ | -------- | -------- | ------------------- | ------- |
-| title  | 标题     | `string` |                     | `Title` |
-| type   | 类型     | `string` |                     |         |
-| rarity | 稀有度   | `number` | `1` `2` `3` `4` `5` | `1`     |
-| imgUrl | 图片地址 | `string` |                     |         |
-| main   | 主属性   | `object` |                     |         |
-| sub    | 副属性   | `object` |                     |         |
-| size   |          | `number` |                     | `50`    |
+<Props
+repeat
+name="DetailCard"
+:define="`
+  title?: string // 标题
+  type?: string // 类型
+  rarity?: 1 | 2 | 3 | 4 | 5 // 稀有度
+  imgUrl?: string // 图片地址
+  main?: Property // 主属性
+  sub?: Property // 副属性
+  size?: number // 卡片大小
+`"
+:defaults="{
+  title: 'Title',
+  rarity: 1,
+  size: 50
+}"
+/>
 
 
 ### 插槽说明

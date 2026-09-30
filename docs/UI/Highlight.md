@@ -25,18 +25,10 @@
 :::
 
 
-### 类型定义
-
-
-``` ts
-defineProps<{
-  text:string
-}>()
-```
-
-### 类型说明
-
-| 参数 | 说明             | 类型     | 可选值 | 默认值 |
-| ---- | ---------------- | -------- | ------ | ------ |
-| text | 带有标记的字符快 | `string` |        |        |
-
+<Props
+repeat
+name="InputNumberSlider"
+:define="`
+  text:string // 带有标记的字符快
+`"
+/>

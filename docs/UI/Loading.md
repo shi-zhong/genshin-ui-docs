@@ -76,6 +76,19 @@
 
 :::
 
+#### 单元素Loading
+
+:::demo
+
+```vue
+<template>
+  <GSingleLoading  />
+  <GSingleLoading :size="80" :loop="1000" />
+</template>
+```
+
+:::
+
 ### 类型定义
 
 
@@ -88,13 +101,29 @@ defineProps<{
 }>()
 ```
 
-### 类型说明
 
-| 参数     | 说明              | 类型     | 可选值 | 默认值 |
-| -------- | ----------------- | -------- | ------ | ------ |
-| progress | 进度条进度        | `number` |        |        |
-| stage    | 把总进度分割成n块 | `number` |        |        |
-| parts    | 进度条总进度      | `number` |        |        |
+<Props
+name="Loading"
+:define="`
+  progress: number // 进度条进度
+  stage: number  // 把总进度分割成n块
+  parts: number // 进度条总进度
+`"
+/>
+
+<Props
+name="SingleLoading"
+:define="`
+loop?:number // 单个元素切换周期(毫秒)
+size?:number // 元素大小
+`"
+:defaults="{
+  loop: 2000,
+  size: 60
+}"
+/>
+
+
 <style>
 .gl-loading {
   transform: scale(0.8);

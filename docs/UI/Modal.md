@@ -114,34 +114,6 @@ interface ModalButtonConfig {
   disable?: boolean
 }
 
-interface ModalProps {
-  visible: boolean
-  theme?: 'dark' | 'light'
-
-  title?: string
-
-  okText?: string
-  okIcon?: string
-  okDisable?: boolean
-
-  cancelText?: string
-  cancelIcon?: string
-  cancelDisable?: boolean
-
-  // 总配置 单个配置优先
-  ok?: ModalButtonConfig
-  cancel?: ModalButtonConfig
-  mask?: boolean
-
-  zIndex?: number
-}
-
-interface ModalEmits {
-  (e: 'close'): void
-  (e: 'cancel'): void
-  (e: 'ok'): void
-}
-
 interface ModalOptionProps {
   title?: string
   text?: string
@@ -161,26 +133,45 @@ type ModalFunc = (option?: ModalOptionProps, callback?: ModalCallback) => void
 
 ```
 
-### 类型说明
+<Props
+:define="`
+  visible: boolean // 是否显示
+  theme?: 'dark' | 'light' // 主题
+  title?: string // 标题
+  okText?: string // 确认按钮文字
+  okIcon?: string // 确认按钮图标
+  okDisable?: boolean // 确认按钮是否禁用
+  cancelText?: string // 取消按钮文字
+  cancelIcon?: string // 取消按钮图标
+  cancelDisable?: boolean // 取消按钮是否禁用
+  ok?: ModalButtonConfig // 确认按钮总配置
+  cancel?: ModalButtonConfig // 取消按钮总配置
+  mask?: boolean // 是否启用遮罩层关闭
+  zIndex?: number // 面板层级
+`"
+:defaults="{
+  visible: false,
+  theme: 'dark',
+  title: 'Title',
+  okText: 'Confirm',
+  okIcon: 'round',
+  okDisable: false,
+  cancelText: 'Cancel',
+  cancelIcon: 'fork',
+  cancelDisable: false,
+  mask: true,
+  zIndex: 'Auto'
+}"
+/>
 
-#### Modal
-| 参数          | 说明               | 类型                | 可选值         | 默认值     |
-| ------------- | ------------------ | ------------------- | -------------- | ---------- |
-| visible       | 是否显示           | `boolean`           |                |            |
-| theme         | 主题               | `string`            | `dark` `light` | `dark`     |
-| title         | 标题               | `string`            |                | `Title`     |
-| okText        | 确认按钮文字       | `string`            |                | `Confirm`  |
-| okIcon        | 确认按钮图标       | `string`            |                | `round`    |
-| okDisable     | 确认按钮是否禁用   | `boolean`           |                | `false`    |
-| cancelText    | 取消按钮文字       | `string`            |                | `Cancel`   |
-| cancelIcon    | 取消按钮图标       | `string`            |                | `fork`     |
-| cancelDisable | 取消按钮是否禁用   | `boolean`           |                | `false`    |
-| ok            | 确认按钮总配置     | `ModalButtonConfig` |                |            |
-| cancel        | 取消按钮总配置     | `ModalButtonConfig` |                |            |
-| mask          | 是否启用遮罩层关闭 | `boolean`           |                | `true`     |
-| zIndex        | 面板层级           | `number`            |                | `内部生成` |
 
-
+<Emits
+:define="`
+close @  关闭触发    @ () => void
+cancel @ 取消触发     @ () => void
+ok @     确认触发 @ () => void
+`"
+ />
 
 
 <style>

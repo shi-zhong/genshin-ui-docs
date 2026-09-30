@@ -142,47 +142,37 @@ interface SelectProps {
 }
 
 interface SelectOptionProps {
-  text: string
-  value: string
+
 }
 
-defineEmits<{
-  (event: 'update:modelValue', aft: string): void
-  (
-    event: 'change',
-    value: {
-      prv: SelectOptionProps
-      aft: SelectOptionProps
-      stop: () => void
-    }
-  ): void
-}>()
+
 ```
 
 ### 类型说明
 
 #### Select
-| 参数       | 说明     | 类型                  | 可选值                              | 默认值 |
-| ---------- | -------- | --------------------- | ----------------------------------- | ------ |
-| options    | 选项列表 | `SelectOptionProps[]` |                                     |        |
-| modelValue | 绑定值   | `string`              |                                     |        |
-| maxHeight  | 最大高度 | `number`              |                                     |        |
-| default    | 默认值   | `string`              |                                     |        |
+| 参数       | 说明     | 类型                  | 可选值                                              | 默认值 |
+| ---------- | -------- | --------------------- | --------------------------------------------------- | ------ |
+| options    | 选项列表 | `SelectOptionProps[]` |                                                     |        |
+| modelValue | 绑定值   | `string`              |                                                     |        |
+| maxHeight  | 最大高度 | `number`              |                                                     |        |
+| default    | 默认值   | `string`              |                                                     |        |
 | placement  | 方向     | `acceptDirection`     | [见Popover](/genshin-ui-docs/Base/popover#类型定义) | `top`  |
 
-#### SelectOption
-| 参数  | 说明           | 类型   | 可选值 | 默认值 |
-| ----- | -------------- | ------ | ------ | ------ |
-| text  | 选项文本       | string | -      | -      |
-| value | 选项值（唯一） | string | -      | -      |
 
+<Props
+repeat
+name="SelectOption"
+:define="`
+  text: string // 选项文本
+  value: string // 选项值（唯一)
+`" />
 
-### 事件说明
+<Emits 
+:define="`
+change @ 选项改变, 返回false阻止选项更新 @ （{ prv: SelectOptionProps, aft: SelectOptionProps, stop: () => void }）=> void
+`" />
 
-| 事件名       | 说明                            | 回调参数                                             | 返回值    |
-| ------------ | ------------------------------- | ---------------------------------------------------- | --------- |
-| update:model | 更新绑定值                      | string                                               | void      |
-| change       | 选项改变, 返回false阻止选项更新 | `{ prv: SelectOptionProps, aft: SelectOptionProps }` | `boolean` |
 
 <style>
 .w-200 {

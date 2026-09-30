@@ -78,45 +78,29 @@
 :::
 
 
-### 类型定义
+<Props
+name="Tab"
+:define="`
+  default?: string // 默认选中项
+  disable?: string[] // 禁用项
+  active?: string // 控制权移交外部
+`"
+ />
 
 
-``` ts
-interface TabPaneProps {
-  tabKey: string
-  title?: string
-}
+<Props
+repeat
+name="TabPane"
+:define="`
+  tabKey: string // 选项卡的标识
+  title?: string // 选项卡的标题
+`"
+ />
 
-interface TabProps {
-  default?: string; 
-  disable?: string[]; 
-  active?: string
-}
 
-defineEmits<{
-  click: (tab: string) => void
-  change: (tab: string) => void
-}>()
-```
-
-### 类型说明
-
-Tab
-| 参数    | 说明           | 类型       | 可选值 | 默认值 |
-| ------- | -------------- | ---------- | ------ | ------ |
-| default | 默认选中项     | `string`   |        |        |
-| disable | 禁用项         | `string[]` |        |        |
-| active  | 控制权移交外部 | `string`   |        |        |
-
-TabPane
-| 参数   | 说明         | 类型     | 可选值 | 默认值 |
-| ------ | ------------ | -------- | ------ | ------ |
-| tabKey | 选项卡的标识 | `string` |        |        |
-| title  | 选项卡的标题 | `string` |        |        |
-
-### 事件说明
-
-| 事件名 | 说明             | 回调参数      |
-| ------ | ---------------- | ------------- |
-| click  | 点击选项卡时触发 | `tab: string` |
-| change | 切换选项卡时触发 | `tab: string` |
+<Emits
+:define="`
+click  @ 点击选项卡时触发  @ (tab: string) => void
+change @ 切换选项卡时触发  @ (tab: string) => void
+`"
+ />

@@ -34,6 +34,8 @@
       <GButton class="w-50 mg-10" type="shrink" balance shape="round" icon="$filter"></GButton>
       <GButton class="w-50 mg-10" type="shrink" balance shape="round" icon="$back"></GButton>
       <GButton class="w-50 mg-10" type="shrink" balance shape="round" icon="$close"></GButton>
+      <GButton class="w-50 mg-10" type="shrink" balance shape="round" icon="$add"></GButton>
+      <GButton class="w-50 mg-10" type="shrink" balance shape="round" icon="$reduce"></GButton>
     </div>
     <div style="padding-left: 10px;font-size: 20px;">图片形式传入icon, 如果想要定义样式，使用后代选择器</div>
     <div>
@@ -133,34 +135,20 @@
 :::
 
 
-### 类型定义
-``` ts
-defineProps<{
-  type: 'shrink' | 'spread'
-  shape?: 'round'
-  balance?: boolean
-  icon?: 'round' | 'fork' | undefined | string
-  disable?: boolean
-  attention?: boolean
-  theme?: 'dark' | 'light'
-  sound?:  { replay: () => void }
-  sleep?: number;
-}>()
-```
-
-### 类型说明
-
-| 参数      | 说明                               | 类型      | 可选值                   | 默认值   |
-| --------- | ---------------------------------- | --------- | ------------------------ | -------- |
-| type      | 按钮类型                           | `string`  | `shrink` `spread`        | `shrink` |
-| shape     | 按钮形状                           | `string`  | `round`                  |          |
-| balance   | 当按钮长度过小时，用于平衡视觉效果 | `boolean` |                          | `false`  |
-| icon      | 按钮按钮图标                       | `string`  | `以上文小节列出内容为准` |          |
-| disable   | 按钮是否禁用                       | `boolean` |                          | `false`  |
-| attention | 红色感叹号                         | `boolean` |                          | `false`  |
-| theme     | 按钮主题                           | `string`  | `dark` `light`           | `light`  |
-| sound     | 按钮声音                           | `object`  |                          |          |
-| sleep     | 点击后禁用时间                     | `number`  |                          |          |
+<Props
+:define="`
+  type?: 'shrink' | 'spread' // 按钮类型
+  shape?: 'round' // 按钮形状
+  balance?: boolean // 当按钮长度过小时，用于平衡视觉效果
+  icon?: string // 按钮按钮图标
+  disable?: boolean // 按钮是否禁用
+  attention?: boolean // 红色感叹号
+  theme?: 'dark' | 'light' // 按钮主题
+  sleep?: number // 点击后禁用时间
+  sound?: { replay: () => void } // 按钮声音
+`"
+:defaults="{ type: 'shrink', theme: 'light' }"
+ />
 
 <style>
   .w-50 {

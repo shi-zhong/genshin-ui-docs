@@ -1,10 +1,23 @@
 /** @format */
 import { defaultTheme, defineUserConfig, viteBundler } from 'vuepress';
-import vuePluginDemoPlus from 'vuepress-plugin-demoblock-plus';
+import vuePluginDemoPlus from './plugins/vuepress-plugin-demoblock-plus/index';
 import sidebar, { ReadNextDirs } from './sidebar';
 import { Version } from '@shi-zhong/genshin-ui';
 
-// read version
+const DateVersion = () => {
+  const date = new Date();
+
+  function padNumber(n: number, l: number = 2) {
+    return n.toString().padStart(l, '0');
+  }
+
+  const month = padNumber(date.getMonth() + 1);
+  const day = padNumber(date.getDate());
+
+  const minutes = padNumber(date.getHours() * 60 + date.getMinutes(), 3);
+
+  return `u${month}.${day}.${minutes}`;
+};
 
 export default defineUserConfig({
   lang: 'zh-CN',
@@ -39,7 +52,8 @@ export default defineUserConfig({
   theme: defaultTheme({
     navbar: [
       { text: 'github', link: 'https://github.com/shi-zhong/genshin-ui' },
-      { text: Version, link: '' }, // 同步版本
+      { text: 'v1.0.3', link: '' }, // 同步版本
+      { text: DateVersion(), link: '' },
     ],
     sidebar: sidebar([
       '/install',
